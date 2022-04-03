@@ -1,0 +1,21 @@
+<form [formGroup]="form">
+  <mat-form-field class="input" appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput [formControl]="name" placeholder="name">
+    <mat-error *ngIf="name.hasError('required')">
+      Please enter a name
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="input" appearance="outline">
+    <mat-label>Age</mat-label>
+    <input matInput [formControl]="age" placeholder="age">
+    <mat-error *ngIf="age.hasError('required')">
+      Please enter age
+    </mat-error>
+  </mat-form-field>
+  <p *ngFor="let obj of users" class="json">Name: {{obj.name}}, Age: {{obj.age}}</p>
+
+  <button class="button" type="button" (click)="onSubmit()" mat-raised-button color="primary">Post</button>
+  <button class="button" type="button" (click)="getAllUsers()" mat-raised-button color="accent">Get</button>
+</form>
