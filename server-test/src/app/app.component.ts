@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Subject } from 'rxjs';
-import { take, takeUntil, tap } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
 import { BackServiceService } from './back-service.service';
 
 @Component({
@@ -14,8 +13,6 @@ export class AppComponent implements OnInit {
   public name = new FormControl('', Validators.required);
   public age = new FormControl('', Validators.required);
   public users: any[] = [];
-
-  public destroy$: Subject<boolean> = new Subject<boolean>();
 
   constructor(private appService: BackServiceService) { }
 
